@@ -1,0 +1,12 @@
+Description: one ec2 instance
+
+Resources:
+    EC2Instance1: 
+        Type: AWS::EC2::Instance
+        Properties: 
+            ImageId: "ami-79fd7eee"
+            KeyName: "awsKP"
+            NetworkInterfaces: 
+            -  AssociatePublicIpAddress: "true"
+               DeviceIndex: "0"
+               SubnetId:  !ImportValue 'PublicSubnet1'
